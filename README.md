@@ -1,5 +1,5 @@
 # 4IZ460 CleverMiner Project
-This projects operates on data from datasets
+This project operates on data from datasets
 
 https://www.kaggle.com/datasets/christianlillelund/csgo-round-winner-classification
 
