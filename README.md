@@ -8,4 +8,5 @@ https://www.kaggle.com/datasets/vatsalparsaniya/csgo-weapons
 ## Prerequirements
 - Python v 3.9
 - CleverMiner
+- Pandas
  
