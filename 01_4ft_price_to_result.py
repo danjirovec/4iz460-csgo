@@ -1,5 +1,5 @@
 """
-How does the overall equipment cost invfluence round outcome?
+How does the overall equipment cost influence round outcome?
 """
 
 import pandas as pd
