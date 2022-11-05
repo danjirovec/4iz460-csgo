@@ -87,16 +87,18 @@ equipment_to_categories = {
 
 equipment_df_names = df_equipment['name'].tolist()
 
-# check that all weapons are covered
+# check that all equipment is covered
 if not all([x in equipment_to_categories for x in equipment_df_names]):
     missing_equipment = [x for x in equipment_df_names if x not in equipment_to_categories]
     raise AttributeError(f"Following equipment not covered in dict, it needs to be updated! - {missing_equipment}")
 
-# check for gun redundancy
+# check for equipment redundancy
 if not all([x in equipment_df_names for x in equipment_to_categories.keys()]):
     redundant_equipment = [x for x in equipment_to_categories.keys() if x not in equipment_df_names]
     logger.warning(f"Following equipment redundant in dict, it should be updated! - {redundant_equipment}")
 
+# merge dicts, create a df from them, save as csv
 buyable_categories = weapons_to_categories | equipment_to_categories
-byuable_categories_df = pd.DataFrame({'name': list(buyable_categories.keys()), 'category': list(buyable_categories.values())})
+byuable_categories_df = pd.DataFrame({'name': list(buyable_categories.keys()),
+                                      'category': list(buyable_categories.values())})
 byuable_categories_df.to_csv("./data/csgo_byuable_to_category.csv", index=False)
