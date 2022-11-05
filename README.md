@@ -6,7 +6,7 @@ https://www.kaggle.com/datasets/christianlillelund/csgo-round-winner-classificat
 https://www.kaggle.com/datasets/vatsalparsaniya/csgo-weapons
 
 ## Requirements
-- Python v 3.9 (or higher)
+- Python v 3.10 (or higher)
 
 To install necessary packages, run following command:
 
