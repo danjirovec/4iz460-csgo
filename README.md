@@ -6,9 +6,11 @@ https://www.kaggle.com/datasets/christianlillelund/csgo-round-winner-classificat
 https://www.kaggle.com/datasets/vatsalparsaniya/csgo-weapons
 
 ## Requirements
-- Python v 3.9
-- CleverMiner
-- Pandas
+- Python v 3.9 (or higher)
+
+To install necessary packages, run following command:
+
+`pip install -r requirements.txt`
 
 ## Project structure
  * **helper_scripts** - scripts for generating extra data that weren't in original files
