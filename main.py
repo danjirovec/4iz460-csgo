@@ -14,12 +14,9 @@ df.head(5)
 
 columns = df.columns.tolist()
 
-# todo add buyable category to items
 df_equipment = pd.read_csv("./data/csgo_equipment.csv", sep=',')
 df_equipment.head(5)
 
-
-# todo add buyable category to items
 df_weapons = pd.read_csv("./data/csgo_weapons.csv", sep=',')
 df_weapons.head(5)
 
@@ -31,7 +28,7 @@ equipment_trans = df_to_dict(df_equipment, key='name', value='price')
 equipment_weapons = df_to_dict(df_weapons, key='Name', value='Cost')
 # todo add buyable to category translation dicts
 
-def parse_snapshot_column_to_buyable(row: pd.Series, trans: dict) -> tuple(str, str):
+def parse_snapshot_column_to_buyable(row: pd.Series, trans: dict) -> tuple[str, str]:
 
 
     return buyable_type, buyable_category, buyable_proper_name
