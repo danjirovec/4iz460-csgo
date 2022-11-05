@@ -1,0 +1,45 @@
+name,category,nickname
+AK-47,rifle,ak47
+AUG,rifle,aug
+AWP,sniper,awp
+CZ75 Auto,pistol,cz75auto
+Desert Eagle,pistol,deagle
+Dual Berettas,pistol,elite
+FAMAS,rifle,famas
+Five-SeveN,pistol,fiveseven
+G3SG1,sniper,g3sg1
+Galil AR,rifle,galilar
+Glock 18,pistol,glock
+M249,machine gun,m249
+M4A4,rifle,m4a4
+M4A1-S,rifle,m4a1s
+MAC-10,smg,mac10
+MAG-7,shotgun,mag7
+MP5-SD,smg,mp5sd
+MP7,smg,mp7
+MP9,smg,mp9
+Negev,machine gun,negev
+Nova,shotgun,nova
+P2000,pistol,p2000
+P250,pistol,p250
+P90,smg,p90
+PP-Bizon,smg,bizon
+R8 Revolver,pistol,r8revolver
+Sawed-Off,shotgun,sawedoff
+SCAR-20,sniper,scar20
+SG 553,rifle,sg553
+SSG 08,sniper,ssg08
+Tec-9,pistol,tec9
+UMP-45,smg,ump45
+USP-S,pistol,usps
+XM1014,shotgun,xm1014
+Kevlar Vest,armor,kevlar
+Kevlar Vest + Helmet,armor,kevlarhelmet
+Zeus x27,CT equipment,zeus
+Defuse Kit,CT equipment,defuse
+Molotov,grenade,molotovgrenade
+Incendiary Grenade,grenade,incendiarygrenade
+Decoy Grenade,grenade,decoygrenade
+Flashbang,grenade,flashbang
+HE Grenade,grenade,hegrenade
+Smoke Grenade,grenade,smokegrenade
