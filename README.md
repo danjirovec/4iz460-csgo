@@ -17,5 +17,6 @@ To install necessary packages, run following command:
    (run this first)
  * **preprocessing** - scripts to process all datasets together (scripts in helper_scripts 
 should be run first, this should be run second)
- * **main.ipynb** - main analysis script (should be run last)
+ * ~~**main.ipynb** - main analysis script (should be run last)~~
+ * **01_4ft_price_to_result.py** - script containing first task exploring how equipment cost influences round result
  
