@@ -23,7 +23,7 @@ for g_map in df_grouped['map'].unique():
 bar_width = 0.33
 # initialize a figure
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
-fig.suptitle('Team wins by map', fontsize=15)
+fig.suptitle('Team wins by map', fontsize=25)
 plt.subplots_adjust(bottom=0.2)
 
 # fig = plt.figure(figsize=(12, 8))
@@ -35,27 +35,29 @@ ct_wins_rel = df_grouped_rel.loc[df_grouped_rel['round_winner'] == 'CT', 'wins']
 t_wins_rel = df_grouped_rel.loc[df_grouped_rel['round_winner'] == 'T', 'wins'].tolist()
 
 # get positioning of teams on plot x-axis
-x_ct = list(range(len(ct_wins)))
+x_ct = [x+bar_width/2 for x in range(len(ct_wins))]
 x_t = [x + bar_width for x in x_ct]
 
 # plot bars - absolute count
 ax1.bar(x_ct, ct_wins, color='#5d79ae', width=bar_width, label='CT')
 ax1.bar(x_t, t_wins, color='#de9b35', width=bar_width, label='T')
 # Add labels
-ax1.set_title('Absolute count', fontsize=15)
-ax1.set_xlabel('Map', fontsize=15)
-ax1.set_ylabel('Rounds won', fontsize=15)
-ax1.set_xticks([x + bar_width for x in range(len(ct_wins))], df_grouped.loc[df_grouped['round_winner'] == 'CT', 'map'].tolist(), rotation = 45)
+ax1.set_title('Absolute count')
+ax1.set_xlabel('Map')
+ax1.set_ylabel('Rounds won')
+ax1.set_xticks([x + bar_width for x in range(len(ct_wins))], df_grouped.loc[df_grouped['round_winner'] == 'CT', 'map'].tolist(), rotation=45)
+ax1.tick_params(axis='x', which='major', length=0)
 ax1.legend()
 
 # plot bars - relative count
 ax2.bar(x_ct, ct_wins_rel, color='#5d79ae', width=bar_width, label='CT')
 ax2.bar(x_t, t_wins_rel, color='#de9b35', width=bar_width, label='T')
 # Add labels
-ax2.set_title('Relative count', fontsize=15)
-ax2.set_xlabel('Map', fontsize=15)
-ax2.set_ylabel('Rounds won (%)', fontsize=15)
-ax2.set_xticks([x + bar_width for x in range(len(ct_wins))], df_grouped_rel.loc[df_grouped_rel['round_winner'] == 'CT', 'map'].tolist(), rotation = 45)
+ax2.set_title('Relative count')
+ax2.set_xlabel('Map')
+ax2.set_ylabel('Rounds won (%)')
+ax2.set_xticks([x + bar_width for x in range(len(ct_wins))], df_grouped_rel.loc[df_grouped_rel['round_winner'] == 'CT', 'map'].tolist(), rotation=45)
+ax2.tick_params(axis='x', which='major', length=0)
 ax2.legend()
 
 fig.savefig('./outputs/wins_by_map.png')
