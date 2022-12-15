@@ -1,6 +1,6 @@
 # Data
 
-**csgo_buyable_to_category_nickname.csv** - This file contains buyable name, nickname, and category. It's the result of running the `helper_scripts/generate_buyable_categories.py` script
+**csgo_buyable_to_category_nickname.csv** - This file contains buyable name, nickname, and category. It's the result of running the `preprocessing/generate_buyable_categories.py` script
 
 **csgo_equipment.csv** - External file containing buyable equipment (grenades, armor, defuse kits, etc)
 
