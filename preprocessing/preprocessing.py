@@ -66,6 +66,8 @@ logger.info("Creating price columns")
 # fill nas with zeros - not every dict has every column, so make sure math is fine later on
 df = pd.concat([df.drop(columns=['buyable_dict']), df['buyable_dict'].apply(pd.Series).fillna(0)], axis=1)
 
+
+logger.info("Calculating new simple attributes")
 # calculate player surplus
 df['ct_players_alive_surplus'] = df['ct_players_alive'] - df['t_players_alive']
 
@@ -75,6 +77,10 @@ df['time_left_cat'] = pd.cut(df['time_left'], bins=3, labels=['late', 'mid', 'ea
 
 # calculate overall players alive
 df['players_alive'] = df['ct_players_alive'] + df['t_players_alive']
+
+# calculate round number
+# +1 because in first round, score is 0:0
+df['round_number'] = df['ct_score'] + df['t_score'] + 1
 
 logger.info("Saving dataset")
 # save processed dataset
