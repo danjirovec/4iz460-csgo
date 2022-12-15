@@ -7,7 +7,7 @@ import os
 # working directory for Vitek\
 # TODO delete
 os.chdir(r"F:/School/Magistr/3. semestr/Pokročilé přístupy k dobývání znalostí z databází 4IZ460/semestralni_prace/4iz460-csgo")
-from preprocessing.preprocessing_functions import df_to_dict, parse_snapshot_column_to_buyable
+from preprocessing_functions import df_to_dict, parse_snapshot_column_to_buyable, create_match_quarters_no_beginnings
 import logging
 logging.basicConfig(level=logging.INFO)
 
@@ -81,6 +81,9 @@ df['players_alive'] = df['ct_players_alive'] + df['t_players_alive']
 # calculate round number
 # +1 because in first round, score is 0:0
 df['round_number'] = df['ct_score'] + df['t_score'] + 1
+
+# calculate match quarters
+df['match_quarters'] = df['round_number'].apply(create_match_quarters_no_beginnings)
 
 logger.info("Saving dataset")
 # save processed dataset

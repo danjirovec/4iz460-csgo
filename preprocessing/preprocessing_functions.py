@@ -97,3 +97,30 @@ def parse_snapshot_column_to_buyable(row: pd.Series, trans: dict, automatic_colu
         new_cols[f'{team}_overall_investment'] += kevlar_price + kevlarhelmet_price
 
     return new_cols
+
+
+def create_match_quarters_no_beginnings(round_number: int):
+    """
+    TODO
+    
+    Parameters
+    ----------
+    round_number
+
+    Returns
+    -------
+
+    """
+
+    if (round_number >= 2) & (round_number <= 8):
+        return 1
+    elif (round_number >= 9) & (round_number <= 15):
+        return 2
+    elif (round_number >= 17) & (round_number <= 23):
+        return 3
+    elif (round_number >= 24) & (round_number <= 30):
+        return 4
+    else:
+        return -1
+
+
