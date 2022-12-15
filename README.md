@@ -13,10 +13,8 @@ To install necessary packages, run following command:
 `pip install -r requirements.txt`
 
 ## Project structure
- * **helper_scripts** - scripts for generating extra data that weren't in original files
-   (run this first)
- * **preprocessing** - scripts to process all datasets together (scripts in helper_scripts 
-should be run first, this should be run second)
- * ~~**main.ipynb** - main analysis script (should be run last)~~
- * **01_4ft_price_to_result.py** - script containing first task exploring how equipment cost influences round result
+ * **preprocessing** - scripts to process all datasets together (this **MUST** be run first before any other scripts - see readme in that folder)
+ * **outputs** - folder with graphical outputs
+ * **data** - folder for data
+ * 0*.py/.ipynb - individual scripts for individual tasks
  
