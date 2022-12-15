@@ -32,6 +32,7 @@ def parse_snapshot_column_to_buyable(row: pd.Series, trans: dict, automatic_colu
     This function computes prices for all buyables (any equipment that can be bought) in each team. Prices are computed
     for each buyable (e.g. a sum of what it would cost whole team to buy all incendiary grenades or AK74s they have on
     them), category (e.g. cost of all grenades, armor, rifles), and overall spend (sum of all equipment being held).
+    Along the prices, amounts of items in a category (grenades, shotguns, etc) are also calculated.
 
 
     Parameters
@@ -66,6 +67,7 @@ def parse_snapshot_column_to_buyable(row: pd.Series, trans: dict, automatic_colu
             new_cols[f'{col}_price'] = buyable_price  # price for specific item
             # add item price to category and overall spend
             new_cols[f'{buyable_name[0]}_category_{trans[buyable_name[-1]]["category"]}_price'] += buyable_price
+            new_cols[f'{buyable_name[0]}_category_{trans[buyable_name[-1]]["category"]}_amount'] += value
             new_cols[f'{buyable_name[0]}_overall_investment'] += buyable_price
 
     # handle defuse kits
@@ -95,3 +97,34 @@ def parse_snapshot_column_to_buyable(row: pd.Series, trans: dict, automatic_colu
         new_cols[f'{team}_overall_investment'] += kevlar_price + kevlarhelmet_price
 
     return new_cols
+
+
+def create_match_quarters_no_beginnings(round_number: int) -> int:
+    """
+    This function creates match quarters. These are defined as at most 30 rounds, without beginning rounds of each half.
+    Quarters created as [2,8], [9,15], [17,23], [24,30]
+    
+    Parameters
+    ----------
+    round_number: int
+        match round number
+
+    Returns
+    -------
+    match quarter: int
+        quarter which the match is in. If the round number doesn't match (either first round of each half or overtime),
+            -1 is returned
+    """
+
+    if (round_number >= 2) & (round_number <= 8):
+        return 1
+    elif (round_number >= 9) & (round_number <= 15):
+        return 2
+    elif (round_number >= 17) & (round_number <= 23):
+        return 3
+    elif (round_number >= 24) & (round_number <= 30):
+        return 4
+    else:
+        return -1
+
+

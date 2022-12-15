@@ -8,9 +8,6 @@ import logging
 
 logger = logging.getLogger()
 
-os.chdir(r"F:/School/Magistr/3. semestr/Pokročilé přístupy k dobývání znalostí z databází 4IZ460/semestralni_prace/4iz460-csgo")
-
-
 """
 Generate categories for weapons
 """
