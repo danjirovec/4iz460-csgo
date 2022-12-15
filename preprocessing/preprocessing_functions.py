@@ -32,6 +32,7 @@ def parse_snapshot_column_to_buyable(row: pd.Series, trans: dict, automatic_colu
     This function computes prices for all buyables (any equipment that can be bought) in each team. Prices are computed
     for each buyable (e.g. a sum of what it would cost whole team to buy all incendiary grenades or AK74s they have on
     them), category (e.g. cost of all grenades, armor, rifles), and overall spend (sum of all equipment being held).
+    Along the prices, amounts of items in a category (grenades, shotguns, etc) are also calculated.
 
 
     Parameters
@@ -66,6 +67,7 @@ def parse_snapshot_column_to_buyable(row: pd.Series, trans: dict, automatic_colu
             new_cols[f'{col}_price'] = buyable_price  # price for specific item
             # add item price to category and overall spend
             new_cols[f'{buyable_name[0]}_category_{trans[buyable_name[-1]]["category"]}_price'] += buyable_price
+            new_cols[f'{buyable_name[0]}_category_{trans[buyable_name[-1]]["category"]}_amount'] += value
             new_cols[f'{buyable_name[0]}_overall_investment'] += buyable_price
 
     # handle defuse kits

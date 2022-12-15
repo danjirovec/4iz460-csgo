@@ -4,15 +4,14 @@ Code for preprocessing input data
 
 import pandas as pd
 import os
-from preprocessing_functions import df_to_dict, parse_snapshot_column_to_buyable
+# working directory for Vitek\
+# TODO delete
+os.chdir(r"F:/School/Magistr/3. semestr/Pokročilé přístupy k dobývání znalostí z databází 4IZ460/semestralni_prace/4iz460-csgo")
+from preprocessing.preprocessing_functions import df_to_dict, parse_snapshot_column_to_buyable
 import logging
 logging.basicConfig(level=logging.INFO)
 
 logger = logging.getLogger()
-
-# working directory for Vitek
-os.chdir(r"F:/School/Magistr/3. semestr/Pokročilé přístupy k dobývání znalostí z databází 4IZ460/semestralni_prace/4iz460-csgo")
-
 
 """
 Read and show what files look like
@@ -66,6 +65,16 @@ logger.info("Creating price columns")
 # create dataframe columns from newly created column, drop that column and concat new dataframe to existing snapshot
 # fill nas with zeros - not every dict has every column, so make sure math is fine later on
 df = pd.concat([df.drop(columns=['buyable_dict']), df['buyable_dict'].apply(pd.Series).fillna(0)], axis=1)
+
+# calculate player surplus
+df['ct_players_alive_surplus'] = df['ct_players_alive'] - df['t_players_alive']
+
+# categorize time
+df['time_left'].describe()
+df['time_left_cat'] = pd.cut(df['time_left'], bins=3, labels=['late', 'mid', 'early'])
+
+# calculate overall players alive
+df['players_alive'] = df['ct_players_alive'] + df['t_players_alive']
 
 logger.info("Saving dataset")
 # save processed dataset
