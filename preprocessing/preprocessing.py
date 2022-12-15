@@ -3,10 +3,6 @@ Code for preprocessing input data
 """
 
 import pandas as pd
-import os
-# working directory for Vitek\
-# TODO delete
-os.chdir(r"F:/School/Magistr/3. semestr/Pokročilé přístupy k dobývání znalostí z databází 4IZ460/semestralni_prace/4iz460-csgo")
 from preprocessing_functions import df_to_dict, parse_snapshot_column_to_buyable, create_match_quarters_no_beginnings
 import logging
 logging.basicConfig(level=logging.INFO)

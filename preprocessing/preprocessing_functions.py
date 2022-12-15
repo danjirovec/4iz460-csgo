@@ -99,17 +99,21 @@ def parse_snapshot_column_to_buyable(row: pd.Series, trans: dict, automatic_colu
     return new_cols
 
 
-def create_match_quarters_no_beginnings(round_number: int):
+def create_match_quarters_no_beginnings(round_number: int) -> int:
     """
-    TODO
+    This function creates match quarters. These are defined as at most 30 rounds, without beginning rounds of each half.
+    Quarters created as [2,8], [9,15], [17,23], [24,30]
     
     Parameters
     ----------
-    round_number
+    round_number: int
+        match round number
 
     Returns
     -------
-
+    match quarter: int
+        quarter which the match is in. If the round number doesn't match (either first round of each half or overtime),
+            -1 is returned
     """
 
     if (round_number >= 2) & (round_number <= 8):
